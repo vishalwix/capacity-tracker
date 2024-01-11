@@ -1,0 +1,540 @@
+<div class="container-scroller">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="index.html"><img style="height: 42px; width: 180px;"
+            src="https://www.amdocs.com/sites/default/files/styles/coh_xx_small/public/2023-03/amdocs-logo-2x_0.png?itok=b3-Gn1nx"
+            alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+            alt="logo" /></a>
+      </div>
+      <ul class="nav">
+  
+        <li class="nav-item nav-category">
+          <span class="nav-link">Menu</span>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" routerLink="/admin/home">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">CCB Mappings</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/work-type-details">Work Types</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/work-category-details">Work Category</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/onshore-manager-details">Onshore Manager</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/onshore-director-details">Onshore Director</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/offshore-lead-details">Offshore Lead</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/offshore-manager-details">Offshore Manager</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/applications-details">Applications</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/applications-group-details">Applications Group</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/primary-technology-details">Primary Technology</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="/manager/application-type-details">App Type(MF/MR/Ops)</a></li>             
+            </ul>
+          </div>
+        </li>
+  
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="pages/forms/basic_elements.html">
+            <span class="menu-icon">
+              <i class="mdi mdi-table-edit"></i>
+            </span>
+            <span class="menu-title">CCB Tracker</span>
+          </a>
+        </li> 
+        <!-- ####################Dropdown code testing#################### -->
+  
+        <!--  
+        <li class="nav-item menu-items" [ngClass]="{'active' : buttons.isActive || dropdowns.isActive || typography.isActive }">
+          <a class="nav-link" (click)="uiBasicCollapsed = !uiBasicCollapsed" [attr.aria-expanded]="uiBasicCollapsed" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title" translate>CCB Tracker</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" [ngbCollapse]="!uiBasicCollapsed">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" routerLink="basic-ui/extra" routerLinkActive="active" #buttons="routerLinkActive" translate>Add CCB details</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="basic-ui/add-work-type" routerLinkActive="active" #dropdowns="routerLinkActive" translate>Add Work Type</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="basic-ui/application-details" routerLinkActive="active" #typography="routerLinkActive" translate>Add Application Details</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="basic-ui/offshore-management" routerLinkActive="active" #dropdowns="routerLinkActive" translate>Add Offshore Managment Details</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="basic-ui/onshore-management" routerLinkActive="active" #typography="routerLinkActive" translate>Add Onshore Managment Details</a></li>
+            </ul>
+          </div>
+        </li>
+  -->
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="pages/charts/chartjs.html">
+            <span class="menu-icon">
+              <i class="mdi mdi-chart-bar"></i>
+            </span>
+            <span class="menu-title">Summary/Reports</span>
+          </a>
+        </li>
+  
+        
+  
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+              alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav w-100">
+            <li class="nav-item w-100">
+              <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                <input type="text" class="form-control" placeholder="Search">
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown d-none d-lg-block">
+              <button mat-button class="nav-link btn btn-success create-new-button">+ Add CCB Project Details</button>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="createbuttonDropdown">
+                <h6 class="p-3 mb-0">Projects</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-file-outline text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Software Development</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-web text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">UI Development</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-layers text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">See all projects</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                <div class="navbar-profile">
+                  <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
+                  <p class="mb-0 d-none d-sm-block navbar-profile-name">Daljeet Arora</p>
+                  <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="profileDropdown">
+                <h6 class="p-3 mb-0">Profile</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1" (click)=" logout()">Log out</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">Capacity Tracker Report</p>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-format-line-spacing"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> Admin Dashboard </h3>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
+                  </ol>
+                </nav>
+              </div>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h4 class="mb-0">Work Type</h4>
+                            <!-- <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p> -->
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-success ">
+                            <i class="mdi mdi-mouse"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Management</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h4 class="mb-0">Onshore</h4>
+                            <!-- <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p> -->
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-onshore">
+                            <i class="mdi mdi-account"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Management</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h4 class="mb-0">Offshore</h4>
+                            <!-- <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p> -->
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-app">
+                            <i class="mdi mdi-account-multiple"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Management</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h4 class="mb-0">Applications</h4>
+                            <!-- <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p> -->
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-offshore ">
+                            <i class="mdi mdi-television-guide"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Management</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h4 class="mb-0">Application Groups</h4>
+                            <!-- <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p> -->
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-work ">
+                            <i class="mdi mdi-apps"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Management</h6>
+                    </div>
+                  </div>
+                </div>                
+              </div>            
+        </div> 
+        <!-- <div class="content-wrapper">
+  
+          <div class="row ">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">CCB Capacity Tracker </h4>
+                  <div class="template-demo">
+                    <ng-multiselect-dropdown [placeholder]="'Sort'" [settings]="dropdownSettings" [data]="dropdownList"
+                      [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                    <button type="button" (click)="clearSelection()" class="btn btn-outline-secondary btn-fw"><i
+                        class=" mdi mdi-filter-remove-outline"></i>Clear Row Selection</button>
+                    <button class="btn btn-outline-secondary btn-fw" (click)="clearFilter()"> <i
+                        class=" mdi mdi-filter-remove"></i> Clear All Filter</button>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <ag-grid-angular style="width: 100%; height: 350px" class="ag-theme-alpine" [columnDefs]="columnDefs"
+                [defaultColDef]="defaultColDef" [rowData]="rowData$ | async" [rowSelection]="'multiple'"
+                [animateRows]="true" (gridReady)="onGridReady($event)"
+                (cellClicked)="onCellClicked($event)"></ag-grid-angular>
+            </div>
+          </div>
+        </div> -->
+  
+        <!-- <div class="content-wrapper"> 
+          <div class="row ">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">CCB Capacity Tracker </h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> Sus/Enh </th>
+                          <th> PID/MWR/SMB </th>
+                          <th> Apps Count </th>
+                          <th> Project Description </th>
+                          <th> Application </th>
+                          <th> Project Status </th>
+                          <th> MF/MR/Ops </th>
+                          <th> Primary Skill </th>
+                          <th> Application Group </th>
+                          <th> Onshore Manager </th>
+                          <th> Onshore Director </th>
+                          <th> Offshore Lead </th>
+                          <th> Offshore Manager </th>
+                          <th> Release </th>
+                          <th> Committed (Y/N)? </th>
+                          <th> Estimated hours </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-primary btn-fw">On Track</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+  
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-warning btn-fw">In Progress</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+  
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-secondary btn-fw">Cancelled</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+  
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-success btn-fw">Completed</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+  
+  
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-danger btn-fw">On Hold</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+  
+  
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-warning btn-fw">In Progress</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+  
+                        <tr>
+                          <td> Enhancement </td>
+                          <td> PID </td>
+                          <td> 1 </td>
+                          <td> SVN to Git migration - Auto Letters </td>
+                          <td> Auto Letters </td>
+                          <td>
+                            <div class="btn btn-inverse-success btn-fw">Completed</div>
+                          </td>
+                          <td> MR </td>
+                          <td> Java </td>
+                          <td> PUNE-MR-GRP2 </td>
+                          <td> Greg Painter </td>
+                          <td> Muawiah Qaimari </td>
+                          <td> Rudradeep Mandal </td>
+                          <td> Tarun Raghuwanshi </td>
+                          <td> 23.0 </td>
+                          <td> Y </td>
+                          <td> 25 </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  -->
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+  
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023. All Rights
+              Reserved</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> <a href="https://www.amdocs.com/"
+                target="_blank">Amdocs</a> CCB Tracker </span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+  </div>

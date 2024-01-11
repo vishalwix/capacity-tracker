@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../../assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">             
+            <div class="card col-lg-4 mx-auto">                
+              <div class="card-body px-5 py-5">                 
+                <img class="center" style="height: 45px; width: 180px; display: block; margin-left: auto; margin-right: auto;" src="https://www.amdocs.com/sites/default/files/styles/coh_xx_small/public/2023-03/amdocs-logo-2x_0.png?itok=b3-Gn1nx" alt="Your Image Description">   
+                <br>
+                <h4 class="card-title text-center mb-3">CCB Capacity Tracker</h4>                
+                <h6 class="card-title text-center mb-3">Admin | Managers | Leads</h6>                
+                <h5 class="card-title text-left mb-3">Login</h5>
+                <form [formGroup]="loginForm">
+                  <div class="form-group">
+                    <label>Email *</label>
+                    <input type="text" class="form-control p_input" formControlName="email">
+                    <div *ngIf="signInSubmitted && f['email'].errors">
+                      <div *ngIf="f['email'].errors['required']" style=" color: rgb(255, 8, 8); font-size:small">Username required!</div>                                  
+                  </div> 
+                  </div>
+                  <div class="form-group">
+                    <label>Password *</label>
+                    <input type="password" class="form-control p_input" formControlName="password">
+                    <div *ngIf="signInSubmitted && f['password'].errors">
+                      <div *ngIf="f['password'].errors['required']" style=" color: rgb(255, 8, 8); font-size:small">Password required!</div>                                  
+                  </div> 
+                  </div>         
+                  <!-- <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p> -->
+                </form>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-block enter-btn" (click)="onSignIn()">Login</button>
+                </div>  
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>        
+        <!-- row ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../../assets/js/off-canvas.js"></script>
+    <script src="../../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../../assets/js/misc.js"></script>
+    <script src="../../../assets/js/settings.js"></script>
+    <script src="../../../assets/js/todolist.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

@@ -1,0 +1,510 @@
+<div class="container-scroller">
+  <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+      <a class="sidebar-brand brand-logo" href="index.html"><img style="height: 20px; width: 100px;"
+          src="https://www.amdocs.com/sites/default/files/styles/coh_xx_small/public/2023-03/amdocs-logo-2x_0.png?itok=b3-Gn1nx"
+          alt="logo" /></a>
+
+      <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+          alt="logo" /></a>
+    </div>
+
+    <app-side-nav></app-side-nav>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo"
+            style="height: 30;" /></a>
+      </div>
+      <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+        <ul class="navbar-nav w-100">
+          <li class="nav-item w-100">
+            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+              <input type="text" class="form-control" placeholder="Search">
+            </form>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <button mat-button class="nav-link btn btn-success create-new-button" (click)="openDialog()">+ Add CCB
+              Project Details</button>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="createbuttonDropdown">
+              <h6 class="p-3 mb-0">Projects</h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-file-outline text-primary"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1">Software Development</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-web text-info"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1">UI Development</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-layers text-danger"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <p class="p-3 mb-0 text-center">See all projects</p>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+              <div class="navbar-profile">
+                <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
+                <p class="mb-0 d-none d-sm-block navbar-profile-name">Tarun Raghuwanshi</p>
+                <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="profileDropdown">
+              <h6 class="p-3 mb-0">Profile</h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-settings text-success"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject mb-1">Settings</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-logout text-danger"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject mb-1">Log out</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <p class="p-3 mb-0 text-center">Capacity Tracker Report</p>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="mdi mdi-format-line-spacing"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header">
+          <h3 class="page-title"> CCB Capacity Tracker </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/manager/manager-home">Manager</a></li>
+              <li class="breadcrumb-item active" aria-current="page">CCB Capacity Tracker</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="row ">
+          <div class="col-12 grid-margin">
+
+            <div class="card">
+              <div class="card-body">
+                <!-- <h4 class="card-title">CCB Capacity Tracker </h4> -->
+                <button type="reset" class="nav-link btn btn-success create-new-button" (click)="clearCities()">Clear
+                  All Filters <i class="mdi mdi-filter-remove-outline"></i></button>
+                <div class="table-responsive">
+                  <div style="height: 400px;">
+                    <table class="table" style="overflow-x: hidden;">
+                      <thead>
+                        <tr>
+                          <th> Action </th>
+                          <th> Activity {{selectedCityIds}}
+                            <a href="#" *ngIf="arraylen===0" id="profile-dropdown" data-toggle="dropdown"><i
+                                class="mdi mdi-filter-outline"></i></a>
+
+                            <a href="#" *ngIf="arraylen>0" id="profile-dropdown" data-toggle="dropdown"><i
+                                class="mdi mdi-filter-remove-outline"></i></a>
+
+                            <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+                              aria-labelledby="profile-dropdown">
+                              <!-- <h6 class="p-3 mb-0">Projects</h6> -->
+                              <div class="preview-thumbnail">
+                                <div style="margin: 5px; padding: 5px;" class="preview-icon bg-dark">
+                                  <form [formGroup]="heroForm">
+                                    <div class="form-group">
+                                      <label for="state">Activity</label>
+                                      <ng-select *ngIf="isCitiesControlVisible && cities" [items]="cities"
+                                        [clearSearchOnAdd]="true" [closeOnSelect]="false" labelForId="state"
+                                        [multiple]="true" placeholder="Select Activity" clearAllText="Clear"
+                                        formControlName="selectedCitiesIds" [bindLabel]="'text'"
+                                        [style.width.px]="inputWidth" (click)="onSelect($event)">
+                                        <ng-template ng-header-tmp>
+                                          <button (click)="selectAll()" class="btn btn-primary">Select
+                                            all</button>
+                                          <button (click)="unselectAll()" class="btn btn-primary">Unselect
+                                            all</button>
+                                        </ng-template>                                        
+                                        <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                          <div class="row">
+                                            <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"
+                                              [ngModelOptions]="{standalone: true}" />
+                                            {{item['text']}}
+                                          </div>                                          
+                                        </ng-template>  
+                                        <button (click)="selectAll()" class="btn btn-primary">Select
+                                          all</button>                                      
+                                        <ng-template ng-multi-label-tmp let-items="items">
+                                          <div class="ng-value" *ngFor="let item of items | slice:0:2; let index=index">
+                                            {{items[index].text}}
+                                          </div>
+                                          <div class="ng-value" *ngIf="items.length > 2">
+                                            <span class="ng-value-label">{{items.length - 2}} more...</span>
+                                          </div>
+                                        </ng-template>                                        
+                                      </ng-select>                                      
+                                      <br>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+
+                          </th>
+                          <th> Activity Description <a href="#" id="profile-dropdown" data-toggle="dropdown"><i
+                                class="mdi mdi-filter-outline"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+                              aria-labelledby="profile-dropdown">
+                              <ng-select [items]="variableName" bindLabel="name" bindValue="id" [multiple]="true"
+                                [(ngModel)]="selectedCityIds" [style.width.px]="inputWidth">
+                              </ng-select>
+                            </div>
+                          </th>
+                          <th> Application</th>
+                          <th> CCB / Legacy T</th>
+                          <th> Project Status/Challenges(R/Y/G) </th>
+                          <th> Onshore Director </th>
+                          <th> Offshore Lead</th>
+                          <th> Offshore Manger </th>
+                          <th> Release </th>
+                          <th> Commited(Y/N) </th>
+                          <th> Outlier Reasons </th>
+                          <th> Estimated Hours </th>
+                          <th> Oct-23 </th>
+                          <th> Nov-23 </th>
+                          <th> Dec-23 </th>
+                          <th> Jan-24 </th>
+                          <th> Feb-24 </th>
+                          <th> Mar-24 </th>
+                          <th> Apr-24 </th>
+                          <th> May-24 </th>
+                          <th> Jun-24 </th>
+                          <th> Jul-24 </th>
+                          <th> Aug-24 </th>
+                          <th> Sep-24 </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of ccbData | paginate: {
+                          itemsPerPage: pageSize,
+                          currentPage: page,
+                          totalItems: count
+                        }">
+                          <td>
+                            <button type="button" class="btn-sm btn-inverse-danger btn-icon-text" (click)="confirmDialog(item.id,'name')">
+                              <i class="mdi mdi-delete"></i> </button>
+                            <button style="margin-left: 10px;" type="button"
+                              class="btn-sm btn-inverse-primary btn-icon-text" (click)="updateCcbData(item.id)">
+                              <i class="mdi mdi-table-edit"></i> </button>
+
+                          </td>
+                          <td class="tddata"> {{item.activityName.workName}} </td>
+                          <td class="tddata"> {{item.activityDescription}} </td>
+                          <td> {{item.applicationName.applicationAcronym}} </td>
+                          <td> {{item.applicationName.ccbLegacy}} </td>
+                          <td>
+                            <div class="btn btn-inverse-secondary btn-fw"> {{item.projectStatus}}</div>
+                          </td>
+                          <td> {{item.applicationName.onshoreDirector}} </td>
+                          <td> {{item.applicationName.offshoreLead}} </td>
+                          <td> {{item.applicationName.offshoreManager}} </td>
+                          <td> {{item.releaseId}} </td>
+                          <td> {{item.isCommited}} </td>
+                          <td> {{item.outlierReasons}} </td>
+                          <td> {{item.estimatedHours}} </td>
+                          <td> {{item.oct}} </td>
+                          <td> {{item.nov}} </td>
+                          <td> {{item.december}} </td>
+                          <td> {{item.jan}}</td>
+                          <td> {{item.feb}} </td>
+                          <td> {{item.mar}} </td>
+                          <td> {{item.apr}}</td>
+                          <td> {{item.may}} </td>
+                          <td> {{item.jun}} </td>
+                          <td> {{item.jul}}</td>
+                          <td> {{item.aug}} </td>
+                          <td> {{item.sep}} </td>
+                        </tr>
+                      </tbody>
+                    </table>                    
+                  </div> 
+                  <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>                 
+                </div>                
+              </div>              
+            </div>            
+          </div>
+        </div>
+      </div>
+      <!-- <div class="content-wrapper">
+
+        <div class="row ">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">CCB Capacity Tracker </h4>
+                <div class="template-demo">
+                  <ng-multiselect-dropdown [placeholder]="'Sort'" [settings]="dropdownSettings" [data]="dropdownList"
+                    [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                  <button type="button" (click)="clearSelection()" class="btn btn-outline-secondary btn-fw"><i
+                      class=" mdi mdi-filter-remove-outline"></i>Clear Row Selection</button>
+                  <button class="btn btn-outline-secondary btn-fw" (click)="clearFilter()"> <i
+                      class=" mdi mdi-filter-remove"></i> Clear All Filter</button>
+                </div>
+              </div>
+            </div>
+            <br>
+            <ag-grid-angular style="width: 100%; height: 350px" class="ag-theme-alpine" [columnDefs]="columnDefs"
+              [defaultColDef]="defaultColDef" [rowData]="rowData$ | async" [rowSelection]="'multiple'"
+              [animateRows]="true" (gridReady)="onGridReady($event)"
+              (cellClicked)="onCellClicked($event)"></ag-grid-angular>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="content-wrapper"> 
+        <div class="row ">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">CCB Capacity Tracker </h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th> Sus/Enh </th>
+                        <th> PID/MWR/SMB </th>
+                        <th> Apps Count </th>
+                        <th> Project Description </th>
+                        <th> Application </th>
+                        <th> Project Status </th>
+                        <th> MF/MR/Ops </th>
+                        <th> Primary Skill </th>
+                        <th> Application Group </th>
+                        <th> Onshore Manager </th>
+                        <th> Onshore Director </th>
+                        <th> Offshore Lead </th>
+                        <th> Offshore Manager </th>
+                        <th> Release </th>
+                        <th> Committed (Y/N)? </th>
+                        <th> Estimated hours </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-primary btn-fw">On Track</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-warning btn-fw">In Progress</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-secondary btn-fw">Cancelled</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-success btn-fw">Completed</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+
+
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-danger btn-fw">On Hold</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+
+
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-warning btn-fw">In Progress</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+
+                      <tr>
+                        <td> Enhancement </td>
+                        <td> PID </td>
+                        <td> 1 </td>
+                        <td> SVN to Git migration - Auto Letters </td>
+                        <td> Auto Letters </td>
+                        <td>
+                          <div class="btn btn-inverse-success btn-fw">Completed</div>
+                        </td>
+                        <td> MR </td>
+                        <td> Java </td>
+                        <td> PUNE-MR-GRP2 </td>
+                        <td> Greg Painter </td>
+                        <td> Muawiah Qaimari </td>
+                        <td> Rudradeep Mandal </td>
+                        <td> Tarun Raghuwanshi </td>
+                        <td> 23.0 </td>
+                        <td> Y </td>
+                        <td> 25 </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  -->
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023. All Rights
+            Reserved</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> <a href="https://www.amdocs.com/"
+              target="_blank">Amdocs</a> CCB Tracker </span>
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+</div>

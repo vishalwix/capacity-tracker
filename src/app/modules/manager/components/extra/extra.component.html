@@ -1,0 +1,472 @@
+<div style="padding-top: -50px; margin-top: auto;">
+  <div class="content-wrapper1">
+
+    <div class="card add-form">
+      <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">      
+          <h4 *ngIf="!isEditing" class="card-title">Create CCB Data Project</h4>
+          <h4 *ngIf="isEditing" class="card-title">Update CCB Data Project</h4>
+          <p class="text-muted mb-1" (click)="closeDialog()"><i class="mdi mdi-close"></i></p>
+        </div>
+        <form [formGroup]="addccbProjectForm">
+          <!-- <p class="card-description"> Project Details </p>  -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Activity *</label>
+                <div class="col-sm-9">
+                  <select formControlName="activityName" class="form-control"> 
+                    <option disabled [ngValue]="0">Select Activity</option>                                   
+                    <option  *ngFor="let item of all_work_type; let index=index" [ngValue]="item.id">
+                      {{item.workName}}</option>
+                  </select> 
+                  <div *ngIf="isSubmitted && f['activityName'].errors">
+                    <div *ngIf="f['activityName'].errors['required']" style=" color: rgb(255, 8, 8); font-size:10px">Activity required!</div>                                  
+                </div>                
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Activity Description</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Activity Description" formControlName="activityDescription"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Application *</label>
+                <div class="col-sm-9">
+                  <ng-select [items]="all_app_data"
+                      bindLabel="applicationAcronym"
+                      bindValue="id"    
+                      formControlName="applicationName"
+                      (change)="onChangeApplication($event)"
+                      placeholder="Select Application">
+                    </ng-select>
+                  <!-- <select class="form-control">
+                    <option value="">Select application</option>
+                    <option>AAN-CRIS</option>
+                    <option>ABMS</option>
+                    <option>ACCT-INTERFACES BILLING</option>
+                    <option>ACIS CBF</option>
+                    <option>ACIS-ADST</option>
+                    <option>ACIS-BI</option>
+                    <option>ACIS-CI</option>
+                    <option>ACIS-TREATMENT & CASH UPDATE</option>
+                    <option>ACIS-USAGE ARRANGEMENT</option>
+                    <option>ACIS-BILLING UPDATE</option>
+                    <option>ACIS-CDM1</option>
+                    <option>ACIS-REVENUE</option>
+                    <option>AIM</option>
+                    <option>AIRS</option>
+                    <option>ALPHA</option>
+                    <option>ADJUST</option>
+                    <option>ADUF</option>
+                    <option>AUTO LETTERS</option>
+                    <option>BAD DEBT</option>
+                    <option>BILL TRK</option>
+                    <option>BIG-HQ</option>
+                    <option>BILL-CALCULATE</option>
+                    <option>BOCRIS</option>
+                    <option>C/CA</option>
+                    <option>CASH</option>
+                    <option>CASH MF</option>
+                    <option>CBR-MF</option>
+                    <option>CCA ECF</option>
+                    <option>CLUE</option>
+                    <option>CMDS HQ</option>
+                    <option>CRIS-RATE-DB</option>
+                    <option>CRIS MP</option>
+                    <option>CRIS-SO-UPDATE</option>
+                    <option>CRIS POLICIES</option>
+                    <option>CRIS CASH-POSTING</option>
+                    <option>CRIS MISC. Input</option>
+                    <option>CRIS STUDIES</option>
+                    <option>CRIS-RATE-DB</option>
+                    <option>CRIS DATA CONV</option>
+                    <option>CRIS UP</option>
+                    <option>CRIS USAGE STUDIES</option>
+                    <option>CROSS RAO</option>
+                    <option>DT</option>
+                    <option>EDI-BILLING</option>
+                    <option>EDOCS</option>
+                    <option>ERP</option>
+                    <option>ETM</option>
+                    <option>FDB</option>
+                    <option>FDB-POP</option>
+                    <option>FDB-REVDIR</option>
+                    <option>FLEX</option>
+                    <option>GADB</option>
+                    <option>GRP-JW</option>
+                    <option>GRP-MW-BILLING</option>
+                    <option>GRP-MW-ERP-Group</option>
+                    <option>GRP-SE-BILLING</option>
+                    <option>GRP-SE-BILLING-CARE</option>
+                    <option>GRP-SE-BILLING-USAGE</option>
+                    <option>IBIS-SE</option>
+                    <option>ICO-STLMT</option>
+                    <option>IDB-CBLD</option>
+                    <option>IXC PBA</option>
+                    <option>MAGTAPE</option>
+                    <option>METASOLV</option>
+                    <option>MFTS</option>
+                    <option>MOBI</option>
+                    <option>MODX</option>
+                    <option>MOOSA-SE</option>
+                    <option>OC&C-DBASE & POSTING</option>
+                    <option>ODUF</option>
+                    <option>OPNS</option>
+                    <option>OSI</option>
+                    <option>PR</option>
+                    <option>PULL BILL</option>
+                    <option>RA</option>
+                    <option>RAP</option>
+                    <option>RBS</option>
+                    <option>RIGA</option>
+                    <option>RMW WEB</option>
+                    <option>SOLS</option>
+                    <option>TAXING</option>
+                    <option>TAX/TAR - MF</option>
+                    <option>UPSE-SWBT/PB</option>
+                    <option>VERBATIM</option>
+                    <option>VK EARP</option>
+                    <option>WP</option>
+                    <option>None</option>
+                  </select> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Account *</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="ccbLegacy">
+                    <option disabled [ngValue]="0">Select account</option>
+                    <option [ngValue]="1">CCB</option>
+                    <option [ngValue]="2">Legacy T</option>            
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Project Status</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="projectStatus">
+                    <option disabled [ngValue]="0">Select Status *</option>
+                    <option [ngValue]="1">R</option>
+                    <option [ngValue]="2">Y</option> 
+                    <option [ngValue]="3">G</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Onshore Director *</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="onshoreDirector">
+                    <option disabled [ngValue]="0">Select Director</option>
+                    <option [ngValue]="1">Jim Koernig</option>
+                    <option [ngValue]="2">Jonie Greenwood</option> 
+                    <option [ngValue]="3">Muawiah Qaimari</option>                                   
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Onshore Manager *</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="offshoreManger">
+                    <option disabled [ngValue]="0">Select Offshore Manager</option>
+                    <option [ngValue]="1">Tarun Raghuwanshi</option>
+                    <option [ngValue]="2">Daljeet Arora</option> 
+                    <option [ngValue]="3">Himanshu Mathur</option>
+                    <option [ngValue]="4">Amit Patidar</option>
+                    <option [ngValue]="5">Ranjit Rai</option> 
+                    <option [ngValue]="6">Dinesh Bansal (Gurgaon)</option>
+                    <option [ngValue]="7">Prasad Kulkarni</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Offshore Lead *</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="offshoreLead">
+                    <option disabled [ngValue]="0">Select Lead</option>
+                    <option [ngValue]="1">Ankita Mittal</option>
+                    <option [ngValue]="2">Ashish Bartwal</option>
+                    <option [ngValue]="3">Ashish Ranjan</option>
+                    <option [ngValue]="4">Darsha Naik</option>
+                    <option [ngValue]="5">Gourav Patidar</option>
+                    <option [ngValue]="6">Hrishikesh Kamthe</option>
+                    <option [ngValue]="7">Istiyaqahmed Shaikh</option>
+                    <option [ngValue]="8">Kushagra Mathur</option>
+                    <option [ngValue]="9">Lalit Bhagwat</option>
+                    <option [ngValue]="10">Narmada Nelluri</option>
+                    <option [ngValue]="11">Poonam Trimukhe</option>
+                    <option [ngValue]="12">Rajan Patil</option>
+                    <option [ngValue]="13">Rakesh Koli</option>
+                    <option [ngValue]="14">Rakesh Kumar Rout</option>
+                    <option [ngValue]="15">Ravinder Kumar</option>
+                    <option [ngValue]="16">Rudradeep Mandal</option>
+                    <option [ngValue]="17">Sahil Jain</option>
+                    <option [ngValue]="18">Sanjay Lokhande</option>
+                    <option [ngValue]="19">Shefali Hambire</option>
+                    <option [ngValue]="20">Suraj Shette</option>
+                    <option [ngValue]="21">Swapnil Patil</option>
+                    <option [ngValue]="22">Tushar Vispute</option>
+                    <option [ngValue]="23">Vipin Kumar</option>
+                    <option [ngValue]="24">Tarun Raghuwanshi</option>
+                    <option [ngValue]="25">Daljeet Arora</option> 
+                    <option [ngValue]="26">Himanshu Mathur</option>
+                    <option [ngValue]="27">Amit Patidar</option>
+                    <option [ngValue]="28">Ranjit Rai</option> 
+                    <option [ngValue]="29">Dinesh Bansal (Gurgaon)</option>
+                    <option [ngValue]="30">Prasad Kulkarni</option>                 
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Release *</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="releaseId">
+                    <option disabled [ngValue]="0">Choose Release Version</option>
+                    <option [ngValue]="1">22.04</option>
+                    <option [ngValue]="2">22.07</option>
+                    <option [ngValue]="3">22.08</option>
+                    <option [ngValue]="4">22.09</option>
+                    <option [ngValue]="5">22.10</option>
+                    <option [ngValue]="6">22.11</option>
+                    <option [ngValue]="7">22.12</option>
+                    <option [ngValue]="8">23.01</option>
+                    <option [ngValue]="9">23.02</option>
+                    <option [ngValue]="10">23.03</option>
+                    <option [ngValue]="11">23.04</option>
+                    <option [ngValue]="12">23.05</option>
+                    <option [ngValue]="13">23.06</option>
+                    <option [ngValue]="14">23.07</option>
+                    <option [ngValue]="15">23.08</option>
+                    <option [ngValue]="16">23.09</option>
+                    <option [ngValue]="17">23.10</option>
+                    <option [ngValue]="18">23.11</option>
+                    <option [ngValue]="19">23.12</option>
+                    <option [ngValue]="20">24.01</option>
+                    <option [ngValue]="21">24.02</option>
+                    <option [ngValue]="22">24.03</option>
+                    <option [ngValue]="23">24.04</option>
+                    <option [ngValue]="24">24.05</option>
+                    <option [ngValue]="25">24.06</option>
+                    <option [ngValue]="26">24.07</option>
+                    <option [ngValue]="27">24.08</option>
+                    <option [ngValue]="28">24.09</option>
+                    <option [ngValue]="29">24.10</option>
+                    <option [ngValue]="30">24.11</option>
+                    <option [ngValue]="31">24.12</option>
+                    <option [ngValue]="32">OnHold</option>
+                    <option [ngValue]="33">Ongoing</option>
+                    <option [ngValue]="34">TBD</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Commited *</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="isCommited">
+                    <option disabled [ngValue]="0">Select Y/N</option>
+                    <option [ngValue]="1">Y</option>
+                    <option [ngValue]="2">N</option>             
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Outlier Reasons*</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Outlier Reasons" formControlName="outlierReasons"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Estimated Hours *</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Estimated Hours" formControlName="estimatedHours"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">            
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Oct-23</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Oct-23" formControlName="oct"/>
+                </div>
+              </div>
+            </div>  
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nov-23</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Nov-23" formControlName="nov"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Dec-23</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Dec-23" formControlName="december"/>
+                </div>
+              </div>
+            </div>  
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jan-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Jan-24" formControlName="jan"/>
+                </div>
+              </div>
+            </div>        
+          </div>
+          <div class="row">
+            
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Feb-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Feb-24" formControlName="feb"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Mar-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Mar-24" formControlName="mar"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Apr-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Apr-24" formControlName="apr"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">May-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="May-24" formControlName="may"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            
+            
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jun-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Jun-24" formControlName="jun"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jul-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Jul-24" formControlName="jul"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Aug-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Aug-24" formControlName="aug"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Sep-24</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Sep-24" formControlName="sep"/>
+                </div>
+              </div>
+            </div>
+          </div>          
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jul-24</label>
+                <div class="col-sm-9">
+                  <ng-select [items]="variableName"
+                      bindLabel="name"
+                      bindValue="id"    
+                      formControlName="onshoreManger"
+                      (change)="onSelect($event)"
+                      >
+                    </ng-select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Aug-24</label>
+                <div class="col-sm-9">
+                  <ng-select [items]="variableName"
+                      bindLabel="name"
+                      bindValue="id"                  
+                      [multiple]="true"
+                      [(ngModel)]="selectedCityIds"
+                      formControlName="onshoreManger">
+                    </ng-select>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          
+        </form> 
+        <div class="row">
+          <div class="col text-center">
+                <button *ngIf="!isEditing" type="submit" class="btn btn-primary mr-2" (click)="addCcbProjectData()">Create CCB Data</button>
+                <button *ngIf="isEditing" type="submit" class="btn btn-primary mr-2" (click)="updateCcbProjectData()">Update CCB Data</button>
+                <button class="btn btn-dark" (click)="closeDialog()">Cancel</button>             
+          </div>  
+        </div>    
+        <!-- <div class="container">
+          <button type="submit" class="button-42">Submit</button>
+          <button class="btn btn-dark">Cancel</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
